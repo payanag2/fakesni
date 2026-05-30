@@ -2,7 +2,7 @@
 
 **Android frontend for SNI-spoofing DPI bypass — no special setup, just root.**
 
-FakeSNI wraps the [`sni-spoofing`](https://github.com/aleskxyz/SNI-Spoofing) Go binary in a Material You Compose UI. It runs a local TLS proxy that replaces the real SNI in the ClientHello with a decoy hostname, fooling deep-packet-inspection firewalls into letting the connection through. Works on cellular and Wi-Fi, auto-rebinds when the network changes, and cleans up routing rules on stop.
+FakeSNI wraps the [`sni-spoofing`](https://github.com/patterniha/SNI-Spoofing) Go binary in a Material You Compose UI. It runs a local TLS proxy that replaces the real SNI in the ClientHello with a decoy hostname, fooling deep-packet-inspection firewalls into letting the connection through. Works on cellular and Wi-Fi, auto-rebinds when the network changes, and cleans up routing rules on stop.
 
 <table width="100%">
   <tr>
