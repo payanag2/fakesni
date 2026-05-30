@@ -7,7 +7,7 @@ FakeSNI wraps the [`sni-spoofing`](https://github.com/aleskxyz/SNI-Spoofing) Go 
 <table width="100%">
   <tr>
     <td width="50%" align="center"><strong>🌐 Main Interface</strong></td>
-    <td width="50%" align="center"><strong>⚙️ Settings</strong></td>
+    <td width="50%" align="center"><strong>⚙️ Advanced Settings</strong></td>
   </tr>
   <tr>
     <td align="center">
