@@ -29,10 +29,13 @@ android {
             val gradleProps = File(System.getProperty("user.home"), ".gradle/gradle.properties")
             if (gradleProps.exists()) props.load(gradleProps.inputStream())
 
-            storeFile     = File(props.getProperty("FAKESNI_STORE_FILE", ""))
-            storePassword = props.getProperty("FAKESNI_STORE_PASSWORD", "")
-            keyAlias      = props.getProperty("FAKESNI_KEY_ALIAS", "")
-            keyPassword   = props.getProperty("FAKESNI_KEY_PASSWORD", "")
+            fun prop(key: String) = System.getenv(key) ?: props.getProperty(key, "")
+
+            val storePath = prop("FAKESNI_STORE_FILE")
+            storeFile     = if (storePath.isNotEmpty()) File(storePath) else null
+            storePassword = prop("FAKESNI_STORE_PASSWORD")
+            keyAlias      = prop("FAKESNI_KEY_ALIAS")
+            keyPassword   = prop("FAKESNI_KEY_PASSWORD")
         }
     }
 

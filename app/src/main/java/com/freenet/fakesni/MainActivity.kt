@@ -86,6 +86,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -100,6 +101,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.freenet.fakesni.ui.theme.Background
+import com.freenet.fakesni.ui.theme.RobotoMono
 import com.freenet.fakesni.ui.theme.BorderColor
 import com.freenet.fakesni.ui.theme.CardBackground
 import com.freenet.fakesni.ui.theme.DividerColor
@@ -139,9 +141,15 @@ fun MainScreen(vm: MainViewModel = viewModel()) {
         topBar = {
             TopAppBar(
                 title = {
-                    Column {
-                        Text("FAKE SNI", color = OnBackground, fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                        // Text("SNI Spoofing Proxy", color = OnSurfaceDim, fontSize = 14.sp, letterSpacing = 0.3.sp)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            painter = painterResource(R.drawable.app_icon),
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(Modifier.width(6.dp))
+                        Text("Fake SNI", color = OnBackground, fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Background)
@@ -681,7 +689,7 @@ fun LogCard(lines: List<String>) {
             Spacer(Modifier.height(10.dp))
 
             if (lines.isEmpty()) {
-                Text("— waiting for output —", color = OnSurfaceDim, fontSize = 11.sp, fontFamily = FontFamily.Monospace, modifier = Modifier.padding(vertical = 4.dp))
+                Text("— waiting for output —", color = OnSurfaceDim, fontSize = 11.sp, fontFamily = RobotoMono, modifier = Modifier.padding(vertical = 4.dp))
             } else {
                 LazyColumn(state = listState, modifier = Modifier.height(200.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
                     items(lines) { line ->
@@ -689,8 +697,8 @@ fun LogCard(lines: List<String>) {
                         val parts = line.split("  ", limit = 2)
                         if (parts.size == 2) {
                             Row {
-                                Text(parts[0], color = TimestampColor, fontSize = 10.sp, fontFamily = FontFamily.Monospace, modifier = Modifier.alignByBaseline())
-                                Text("  ", fontSize = 10.sp, fontFamily = FontFamily.Monospace, modifier = Modifier.alignByBaseline())
+                                Text(parts[0], color = TimestampColor, fontSize = 10.sp, fontFamily = RobotoMono, modifier = Modifier.alignByBaseline())
+                                Text("  ", fontSize = 10.sp, fontFamily = RobotoMono, modifier = Modifier.alignByBaseline())
                                 Text(
                                     parts[1],
                                     color = when {
@@ -700,13 +708,13 @@ fun LogCard(lines: List<String>) {
                                         else -> OnSurface
                                     },
                                     fontSize = 11.sp,
-                                    fontFamily = FontFamily.Monospace,
+                                    fontFamily = RobotoMono,
                                     lineHeight = 16.sp,
                                     modifier = Modifier.alignByBaseline().weight(1f)
                                 )
                             }
                         } else {
-                            Text(line, color = OnSurface, fontSize = 11.sp, fontFamily = FontFamily.Monospace, lineHeight = 16.sp)
+                            Text(line, color = OnSurface, fontSize = 11.sp, fontFamily = RobotoMono, lineHeight = 16.sp)
                         }
                     }
                 }
