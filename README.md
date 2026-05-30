@@ -4,6 +4,10 @@
 
 FakeSNI wraps the [`sni-spoofing`](https://github.com/aleskxyz/SNI-Spoofing) Go binary in a Material You Compose UI. It runs a local TLS proxy that replaces the real SNI in the ClientHello with a decoy hostname, fooling deep-packet-inspection firewalls into letting the connection through. Works on cellular and Wi-Fi, auto-rebinds when the network changes, and cleans up routing rules on stop.
 
+<img width="1080" height="2252" alt="Screenshot_20260530-131941_Fake SNI" src="https://github.com/user-attachments/assets/8dbd7302-f8c8-4ec2-97fe-432b6e322421" />
+<img width="1080" height="2268" alt="Screenshot_20260530-131957_Fake SNI" src="https://github.com/user-attachments/assets/9b7fd5b6-8067-4fb1-8926-7e555839c40b" />
+
+
 ---
 
 ## Requirements
